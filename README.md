@@ -8,7 +8,7 @@ The code in directory `predict_performance` reproduces results presented in the 
 The notebook (1) performs further processing of the aggregate data files, (2) trains Perfecta, our performance prediction model, as well as a variety of baselines used in the work, and (3) uses all methods to recommend the most cost-effective GPU for a previously unseen LLM with unknown inference performance, subject to performance constraints.
 
 ## License
-All code included in this project is shared under the Apache-2.0 license available in the `LICENSE` file.
+All code included in this project is shared under the [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) license available in the `LICENSE` file.
 
 However, the files containing the performance measurements are shared under the [CDLA-Permissive-2.0](https://cdla.dev/permissive-2-0/) license.
 The details of the CDLA-Permissive-2.0 license are available in the `LICENSE-DATA.md` file.
