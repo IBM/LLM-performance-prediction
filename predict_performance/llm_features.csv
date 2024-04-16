@@ -1,0 +1,11 @@
+model,model_is_flash_attention,model_n_parameters,model_is_encoder_decoder,model_type,model_n_positions,model_n_heads,model_n_layers,model_relative_attention_max_distance,model_relative_attention_n_buckets,model_torch_dtype,model_vocabulary_size
+google/flan-t5-xl,FALSE,3,TRUE,t5,512,32,24,128,32,float32,32128
+google/flan-t5-xxl,FALSE,11,TRUE,t5,,64,24,128,32,float32,32128
+google/flan-ul2,FALSE,20,TRUE,t5,512,16,32,128,32,bfloat16,32128
+ibm/mpt-7b-instruct2,FALSE,6.7,FALSE,mpt,,32,32,,,bfloat16,50432
+bigscience/mt0-xxl,FALSE,13,TRUE,mt5,,64,24,128,32,float32,250112
+Salesforce/codegen2-16B,FALSE,16,FALSE,codegen,2048,24,34,,,float32,51200
+llama-7b,TRUE,7,FALSE,llama,2048,32,32,,,float16,32000
+llama-13b,TRUE,13,FALSE,llama,2048,40,40,,,float16,32000
+EleutherAI/gpt-neox-20b,TRUE,20.6,FALSE,gpt_neox,2048,64,44,,,float16,50432
+bigcode/starcoder,TRUE,15.5,FALSE,gpt_bigcode,8192,48,40,,,float32,49152
