@@ -7,8 +7,6 @@ WORKDIR /app
 
 COPY ./docker/requirements.txt /app/requirements.txt
 
-RUN pip uninstall traitlets
-RUN pip install traitlets==5.9.0
 RUN pip install -r requirements.txt
 RUN rm /app/requirements.txt
 
