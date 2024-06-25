@@ -20,25 +20,39 @@ This applies to all files stored in `preprocess_data/performance_characterizatio
 Our experiments were conducted on a machine with one 14-core Intel Core i9-10940X CPU @ 3.30GHz, 125GB memory and two NVIDIA GeForce RTX 3070 GPUs.
 The machine uses the Ubuntu 22.04.4 (LTS) operating system, CUDA version 12.2, and docker version 24.0.5.
 
-In the `docker` directory we provide files needed to create a docker image and running a jupyter notebook inside the docker container using the created docker image.
-First, clone and open the repository:
+If you want to use a remote machine to run the experiments, ensure local forwarding of port 8889 when connecting to the machine via ssh:
+```
+ssh -L 8889:localhost:8889 USERNAME@REMOTE_IP_ADDRESS
+```
+
+Once you have access to the machine, clone and open this repository:
 ```
 git clone https://github.com/IBM/LLM-performance-prediction.git
 cd LLM-performance-prediction
 ```
-Then, you can build the image using the following command:
+To simplify environment setup, in the `docker` directory we provide files needed to create a docker image, and run a jupyter notebook inside a container using the created docker image.
+To be able to build the image and run the container, it is necessary to have docker and nvidia-sontainer-toolkit installed.
+If your machine does not have these installed, you can install them using the script `docker/install_docker.sh`:
 ```
-docker build -f docker/Dockerfile . -t perfecta
+chmod u+x docker/install_docker.sh
+./docker/install_docker.sh
 ```
-This step may take a while (approx. 15 minutes). After the image has been built, you can start the jupyter notebook inside the container with the following command:
+Then, you can build the docker image using the following command:
 ```
-docker run -it \
+sudo docker build -f docker/Dockerfile . -t perfecta
+```
+This step may take a while (approx. 15 minutes).
+After the image has been built, you can start the jupyter notebook inside the container with the following command:
+```
+sudo docker run -it \
   --gpus all \
   -v ./preprocess_data:/app/preprocess_data \
   -v ./predict_performance:/app/predict_performance \
   -p 8889:8889 \
   perfecta
 ```
+At the end of this step, jupyter notebook will display the command needed to connect to it via a browser.
+Copy the provided address in your browser and you are ready to go.
 
 ### Step 2: Data preprocessing
 The first step to reproduce the experimental results presented in the work is to run all cells in the notebook `preprocess_data/Preprocess_data.ipynb`.
